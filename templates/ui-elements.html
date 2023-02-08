@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Blog | Agency Perfect</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Favicon
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon.png' %}">
+
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+</head>
+<body>
+
+    <header id="masthead" class="site-header site-header-white">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a href="{% url 'tutorial:home' %}" class="site-title"><span>MRIT</span>Academy</a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="{% url 'tutorial:home' %}">Home</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li><a href="{% url 'tutorial:portfolio' %}">Portfolio</a></li>
+                              <li><a href="{% url 'tutorial:blog' %}">Blog</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a href="{% url 'tutorial:portfolio' %}">Portfolio</a></li>
+                        <li class="active"><a href="{% url 'tutorial:blog' %}">Blog</a></li>
+                        <li><a href="{% url 'tutorial:contact' %}">Contact</a></li>
+                        <li><a href="{% url 'tutorial:ui-elements' %}">UI Elements</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
+
+    <div id="hero" class="hero overlay subpage-hero portfolio-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>UI Elements</h1>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">UI Elements</li>
+                </ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section section-ui-elements">
+            <div class="container">
+
+                <div class="typography">
+
+                        <h2 class="text-center heading-separator">Typography</h2>
+
+                        <h1>Heading 1</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat, lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien.</p>
+
+                        <h2 class="mt-50">Heading 2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat, lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien.</p>
+
+                        <h3 class="mt-50">Heading 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat, lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien.</p>
+
+                        <h4 class="mt-50">Heading 4</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat, lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien.</p>
+
+                        <h5 class="mt-50">Heading 5</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat, lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien.</p>
+
+                        <h6 class="mt-50">Heading 6</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat, lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien.</p>
+
+                </div><!-- /.typography -->
+
+                <div class="buttons mt-50">
+                    <h2 class="text-center heading-separator">Buttons</h2>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a href="#" class="btn mb-10">Button</a>
+                            <a href="#" class="btn btn-border mb-10">Button</a>
+                            <a href="#" class="btn btn-fill mb-10">Button</a>
+                            <a href="#" class="btn btn-green mb-10">Button</a>
+                            <a href="#" class="btn btn-gray mb-10">Button</a>
+                        </div>
+                    </div>
+                </div><!-- /.buttons -->
+
+                <div class="row mt-50">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2 class="text-center heading-separator">Form</h2>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                      <label for="email">E-mail:</label>
+                                      <input type="email" class="form-control" id="email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-20">
+                                    <div class="form-group">
+                                      <label for="name">Password:</label>
+                                      <input type="password" class="form-control" id="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-20">
+                                <button class="btn btn-green">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.form -->
+
+                <div class="selectpicker-checkboxes-radiobtn mt-50">
+                    <h2 class="text-center heading-separator">Selectpicker, Checkboxes and Radiobuttons</h2>
+                    <div class="row">
+                        
+                        <div class="col-sm-4">
+                            <select class="selectpicker">
+                                <option>France</option>
+                                <option>Spain</option>
+                                <option>Italy</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-4 mt-20">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox1">
+                                <label for="checkbox1">Red</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox2">
+                                <label for="checkbox2">Yellow</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox3">
+                                <label for="checkbox3">White</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox4">
+                                <label for="checkbox4">Green</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox5">
+                                <label for="checkbox5">Black</label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 mt-20">
+                            <div class="radio-btn">
+                                <input type="radio" name="radio-btn" id="radio-btn1">
+                                <label for="radio-btn1">Football</label>
+                            </div>
+                            <div class="radio-btn">
+                                <input type="radio" name="radio-btn" id="radio-btn2">
+                                <label for="radio-btn2">Basketball</label>
+                            </div>
+                            <div class="radio-btn">
+                                <input type="radio" name="radio-btn" id="radio-btn3">
+                                <label for="radio-btn3">Volleyball</label>
+                            </div>
+                            <div class="radio-btn">
+                                <input type="radio" name="radio-btn" id="radio-btn4">
+                                <label for="radio-btn4">Baseball</label>
+                            </div>
+                            <div class="radio-btn">
+                                <input type="radio" name="radio-btn" id="radio-btn5">
+                                <label for="radio-btn5">Hockey</label>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.selectpicker-checkboxes-radiobtn -->
+
+
+                <div class="ui-tabs-accordion mt-50">
+                    <h2 class="text-center heading-separator">Tabs and Accordion</h2>
+                    <div class="row">   
+
+                        <div class="col-md-6">
+
+                            <ul class="nav nav-tabs tab-style" role="tablist">
+                                <li class="active"><a aria-expanded="true" href="#htab1" role="tab" data-toggle="tab">Tab 1</a></li>
+                                <li class=""><a aria-expanded="false" href="#htab2" role="tab" data-toggle="tab">Tab 2</a></li>
+                                <li class=""><a aria-expanded="false" href="#htab3" role="tab" data-toggle="tab">Tab 3</a></li>
+                            </ul><!-- /.nav-tabs -->
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="htab1">
+                                    <p>Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; interface design; authoring, including standardised code and proprietary software; user experience design; and search engine optimization.</p>
+                                </div><!-- /.tab-pane  -->
+                                <div class="tab-pane fade" id="htab2">
+                                    <p>Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application so that a user can see and interact with them directly.</p>
+                                </div><!-- /.tab-pane -->
+                                <div class="tab-pane fade" id="htab3">
+                                    <p>A rule of thumb is that the front (or "client") side is any component manipulated by the user. The server-side (or "back end") code usually resides on the server, often far removed physically from the user.</p>
+                                </div><!-- /.tab-pane  -->
+                            </div><!-- /.tab-content -->
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="panel-group accordion mb-50" id="accordion">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a class="collapsed" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                                Web Design
+                                            </a>
+                                        </h4><!-- /.panel-title -->
+                                    </div><!-- /.panel-heading -->
+                                    <div aria-expanded="false" id="collapseOne" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; interface design; authoring, including standardised code and proprietary software; user experience design; and search engine optimization.</p>
+                                        </div><!-- /.panel-body -->
+                                    </div><!-- /.panel-collapse -->
+                                </div><!-- /.panel -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                                                Front-end Development
+                                            </a>
+                                        </h4><!-- /.panel-title -->
+                                    </div><!-- /.panel-heading -->
+                                    <div aria-expanded="false" id="collapseTwo" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application so that a user can see and interact with them directly.</p>
+                                        </div><!-- /.panel-body -->
+                                    </div><!-- /.panel-collapse -->
+                                </div><!-- /.panel -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">
+                                                Back-end Development
+                                            </a>
+                                        </h4><!-- /.panel-title -->
+                                    </div><!-- /.panel-heading -->
+                                    <div aria-expanded="false" id="collapseThree" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>A rule of thumb is that the front (or "client") side is any component manipulated by the user. The server-side (or "back end") code usually resides on the server, often far removed physically from the user.</p>
+                                        </div><!-- /.panel-body -->
+                                    </div><!-- /.panel-collapse -->
+                                </div><!-- /.panel -->
+                            </div><!-- /.panel-group -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="ui-pagination mt-50">
+                    <h2 class="text-center heading-separator">Pagination</h2>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <ul class="pagination">
+                                <li><a href="#">&lt;&lt;</a></li>
+                                <li><a href="#">&lt;</a></li>
+                                <li class="more"><a href="#">...</a></li>
+                                <li><a href="#">31</a></li>
+                                <li class="active"><a href="#">32</a></li>
+                                <li><a href="#">33</a></li>
+                                <li class="more"><a href="#">...</a></li>
+                                <li><a href="#">&gt;</a></li>
+                                <li><a href="#">&gt;&gt;</a></li>
+                            </ul><!-- /.pagination -->               
+                        </div>
+                    </div>
+                </div><!-- /.ui-pagination -->
+
+            </div>
+        </section><!-- /.section-ui-elements -->
+
+    </main><!-- /#main -->
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <a class="site-title"><span>MRIT</span>Academy</a>
+                    <p>We're a digital agency focused on creative and results-driven solutions.</p>
+                    <p>We measure our success by the results we drive for our clients.</p>
+                </div>
+                <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
+                    <h3>Keep in touch</h3>
+                    <ul class="list-unstyled contact-links">
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="alhppypro@gmail.com">alhppypro@gmail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+998 88 613 40 44">+998 88 613 40 44</a></li>
+                        <li><i class="fa fa-fax" aria-hidden="true"></i><a href="tel:+998 88 613 40 44">+998 88 613 40 44</a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Samarkand, Uzbekistan</p></li>
+                    </ul>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <h3>Featured links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'tutorial:home' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'tutorial:blog' %}">Blog</a></li>
+                        <li><a href="{% url 'tutorial:portfolio' %}">Porfolio</a></li>
+                        <li><a href="{% url 'tutorial:contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="social-links">
+                            <a class="twitter-bg" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="facebook-bg" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+                            <a class="linkedin-bg" href="#"><i class="fa fa-linkedin"></i></a>
+                        </div><!-- /.social-links -->
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="text-right">
+                            <p>&copy; MRIT Academy</p>
+                            <p>All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.copyright -->
+    </footer><!-- /#footer -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.countTo.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+
+</body>
+</html>

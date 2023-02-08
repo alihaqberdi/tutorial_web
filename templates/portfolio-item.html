@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Blog | Agency Perfect</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Favicon
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon.png' %}">
+
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+</head>
+<body>
+
+    <header id="masthead" class="site-header site-header-white">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+
+                    <a href="{% url 'tutorial:home' %}" class="site-title"><span>MRIT</span>Academy</a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="{% url 'tutorial:home' %}">Home</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li><a href="{% url 'tutorial:portfolio' %}">Portfolio</a></li>
+                              <li><a href="{% url 'tutorial:blog' %}">Blog</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a href="{% url 'tutorial:portfolio' %}">Portfolio</a></li>
+                        <li class="active"><a href="{% url 'tutorial:blog' %}">Blog</a></li>
+                        <li><a href="{% url 'tutorial:contact' %}">Contact</a></li>
+                        <li><a href="{% url 'tutorial:ui-elements' %}">UI Elements</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
+
+    <div id="hero" class="hero overlay subpage-hero portfolio-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Project Name</h1>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+                  <li class="breadcrumb-item active">Project name</li>
+                </ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-project">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="project-img">
+                            <img src="assets/img/portfolio-1.jpg" class="img-res" alt="">
+                        </div><!-- /.project-img -->
+                        <div class="project-img">
+                            <img src="assets/img/portfolio-2.jpg" class="img-res" alt="">
+                        </div><!-- /.project-img -->
+                        <div class="project-img">
+                            <img src="assets/img/portfolio-3.jpg" class="img-res" alt="">
+                        </div><!-- /.project-img -->
+
+                    </div>
+                    <aside class="col-md-4">
+                        <div class="project-info">
+                            <h5>Description</h5>
+
+                            <p class="project-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                            <div class="project-date-category">
+                                <p><span>Date:</span> March 1, 2017</p>
+                                <p><span>Category:</span> Branding, Graphic design</p>
+                            </div><!-- /.project-cat -->
+
+                            <a href="#" class="btn btn-gray">Visit Site</a>
+
+                            <div class="social-links">
+                                <a class="twitter-bg" href="#"><i class="fa fa-twitter"></i></a>
+                                <a class="facebook-bg" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+                                <a class="linkedin-bg" href="#"><i class="fa fa-linkedin"></i></a>
+                            </div><!-- /.social-links -->
+                            
+                        </div><!-- /.project-description -->
+                    </aside>
+                </div>
+            </div>
+            
+        </section><!-- /.section-project -->
+
+        <section class="site-section subpage-site-section section-related-projects">
+            <div class="container">
+                <div class="text-left">
+                    <h2>Related Projects</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio-1.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio-2.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio-3.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6">
+                        <div class="portfolio-item">
+                            <img src="assets/img/portfolio-4.jpg" class="img-res" alt="">
+                            <h4 class="portfolio-item-title">Portfolio item</h4>
+                            <a href="portfolio-item.html"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div><!-- /.portfolio-item -->
+                    </div>
+                </div>
+            </div>
+        </section><!-- /.section-portfolio -->
+
+    </main><!-- /#main -->
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <a class="site-title"><span>MRIT</span>Academy</a>
+                    <p>We're a digital agency focused on creative and results-driven solutions.</p>
+                    <p>We measure our success by the results we drive for our clients.</p>
+                </div>
+                <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
+                    <h3>Keep in touch</h3>
+                    <ul class="list-unstyled contact-links">
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="alhppypro@gmail.com">alhppypro@gmail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+998 88 613 40 44">+998 88 613 40 44</a></li>
+                        <li><i class="fa fa-fax" aria-hidden="true"></i><a href="tel:+998 88 613 40 44">+998 88 613 40 44</a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Samarkand, Uzbekistan</p></li>
+                    </ul>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <h3>Featured links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'tutorial:home' %}">Home</a></li>
+                        <li class="active"><a href="{% url 'tutorial:blog' %}">Blog</a></li>
+                        <li><a href="{% url 'tutorial:portfolio' %}">Porfolio</a></li>
+                        <li><a href="{% url 'tutorial:contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="social-links">
+                            <a class="twitter-bg" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="facebook-bg" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+                            <a class="linkedin-bg" href="#"><i class="fa fa-linkedin"></i></a>
+                        </div><!-- /.social-links -->
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="text-right">
+                            <p>&copy; MRIT Academy</p>
+                            <p>All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.copyright -->
+    </footer><!-- /#footer -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.countTo.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+
+</body>
+</html>
