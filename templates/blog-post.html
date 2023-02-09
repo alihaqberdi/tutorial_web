@@ -96,49 +96,26 @@
 
     <main id="main" class="site-main">
         <section class="site-section subpage-site-section section-blog">
-            <div class="container-fluid">
-                <div class="row">
-                     <aside class="col-md-3">
-                        <div class="sidebar">
+            <div class="container">
+                 <div class="sidebar">
                             <div class="widget search-form">
-                                <h4 class="widget-title">Search the blog</h4>
                                 <form action="{% url 'tutorial:search' %}" class="form-group" method="GET">{% csrf_token %}
-                                    <input type="text" class="form-control" placeholder="Search" required name="texting">
+                                    <input type="text" class="form-control" placeholder="Search" required name='texting'>
                                     <button class="btn btn-green" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div><!-- /.search-form -->
                             <div class="widget widget-categories">
-                                <h4 class="widget-title">Categories</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="{% url 'tutorial:blog' %}">ALL<span>{{ context | length }}</span></a></li>
-                                    {% for categor in category %}
-                                    <li><a href="{{ categor.get_absolute_url }}">{{ categor.name }}<span>{{ categor.product_set.all | length }}</span></a></li>
-                                    {% endfor %}
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-folder"></i> Categories<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                            <li><a href="{% url 'tutorial:blog' %}">ALL</a></li>
+                                            {% for categor in category %}
+                                                <li><a href="{{ categor.get_absolute_url }}">{{ categor.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
                                 </ul>
-                            </div><!-- /.widget-categories -->
-                            <div class="widget widget-recent-posts">
-                                <h4 class="widget-title">Recent posts</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Inside The Lipsum</a></li>
-                                    <li><a href="#">Oscar Wilde</a></li>
-                                    <li><a href="#">Jeffrey Ween</a></li>
-                                    <li><a href="#">Responsive Design</a></li>
-                                    <li><a href="#">Development</a></li>
-                                </ul>
-                            </div><!-- /.widget-recent-posts -->
-                            <div class="widget widget-tags">
-                                <h4 class="widget-title">Tags</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">Web Development</a></li>
-                                    <li><a href="#">PSD Template</a></li>
-                                    <li><a href="#">Responsive Design</a></li>
-                                    <li><a href="#">Development</a></li>
-                                </ul>
-                            </div><!-- /.widget-tags -->
+                            </div>
                         </div><!-- /.sidebar -->
-                    </aside>
-                    <div class="col-md-8">
                         <article class="blog-post">
                             <img src="{{ detail.image.url }}" class="img-res" alt="">
                             <div class="post-content">
@@ -149,7 +126,7 @@
                                         <a href="#"><img class="img-res" src="{{ detail.author.profile_img.url }}" alt="">{{ detail.author }}</a>
                                     </span>
                                     <span class="post-date">
-                                        <a href=""><i class="fa fa-calendar" aria-hidden="true"></i>{{ detail.update }}</a>
+                                        <a href=""><i class="fa fa-calendar" aria-hidden="true"></i>{{ detail.update|date:"F d, Y" }}</a>
                                         </span>
                                     <span class="post-category">
                                         <a href="{{ detail.category.get_absolute_url }}"><i class="fa fa-folder" aria-hidden="true"></i>{{ detail.category }}</a>
@@ -157,6 +134,21 @@
                                 </div><!-- /.post-meta -->
                             </div><!-- /.post-content -->
                         </article><!-- /.blog-post --><hr>
+                         <div class="respond">
+                            {% if user.is_authenticated %}
+                            <h3>Post a Comment</h3>
+                            <form action="{% url 'tutorial:add_comment' detail.slug %}" class="form-horizontal" method="GET">{% csrf_token %}
+                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment"></textarea>
+                                <button class="btn btn-green" type="submit">Add a comment</button>
+                            </form>
+                            {% else %}
+                            <h3>Post a Comment</h3>
+                            <form action="{% url 'login' %}" class="form-horizontal" method="GET">{% csrf_token %}
+                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment"></textarea>
+                                <button class="btn btn-green" type="submit">Add a comment</button>
+                            </form>
+                            {% endif %}
+                        </div><!-- /.respond -->
                         <div id="PostComments" class="post-comments">
                             {% if commentary %}
                             <h3>{{ commentary | length }} - Comments</h3>
@@ -172,7 +164,7 @@
                                     
                                     <div class="post-comment-content-details">
                                         <p class="post-comment-author-name"><b>{{ com.author.username }}</b></p>
-                                        <p class="post-comment-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ com.update }}</p>
+                                        <p class="post-comment-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ com.update|date:"F d, Y"  }}</p>
                                     </div><!-- /.post-content-details -->
                                     <p class="comment">{{ com.text }}</p>
                                     <div class="text-right comment-reply">
@@ -203,25 +195,8 @@
                                 </div><!-- /.post-comment --> 
                             </div><!-- /.replied -->
                         </div><!-- /#PostComments -->
-                        <div class="respond">
-                            {% if user.is_authenticated %}
-                            <h3>Post a Comment</h3>
-                            <form action="{% url 'tutorial:add_comment' detail.slug %}" class="form-horizontal" method="GET">{% csrf_token %}
-                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment"></textarea>
-                                <button class="btn btn-green" type="submit">Add a comment</button>
-                            </form>
-                            {% else %}
-                            <h3>Post a Comment</h3>
-                            <form action="{% url 'login' %}" class="form-horizontal" method="GET">{% csrf_token %}
-                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment"></textarea>
-                                <button class="btn btn-green" type="submit">Add a comment</button>
-                            </form>
-                            {% endif %}
-                        </div><!-- /.respond -->
-                    </div>
 
                 </div>
-            </div>
         </section><!-- /.section-portfolio -->
 
     </main><!-- /#main -->

@@ -6,4 +6,4 @@ from django.contrib.auth.models import User
 
 
 class CustomUser(AbstractUser):
-    profile_img = models.ImageField(upload_to='profile_img')
+    profile_img = models.ImageField(upload_to='profile_img', default='anonm.jpg')

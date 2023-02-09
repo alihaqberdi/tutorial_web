@@ -14,12 +14,10 @@ def IndexView(request):
 def BlogView(request):
     context = Product.objects.filter(is_activated=True)
     # Paginator
-    p = Paginator(context, 3)
+    p = Paginator(context, 6)
     page = request.GET.get('page')
     product = p.get_page(page)
     all = Category.objects.all()
-    for i in product:
-        print(i.author)
     return render(request, 'blog.html', {'product': product,
                                         'context': context,
                                         'category': all})
@@ -79,12 +77,14 @@ def SearchView(request):
 
 def AddCommentView(request, slug):
     #add comment
+    obj = Commentary.objects.filter(product__slug=slug)
     text = request.GET.get('add_comment')
-    user = CustomUser.objects.filter(username=request.user.username)
-    product = Product.objects.filter(slug=slug)
-    add = Commentary(product_id=int(product[0].id), author_id=user[0].id, text=text)
+    user = CustomUser.objects.get(username=request.user.username)
+    product = Product.objects.get(slug=slug)
+    add = Commentary(product_id=int(product.id), author_id=int(user.id), text=text)
     add.save()
-    return render(request, 'blog-post.html', {'detail': product})
+    return render(request, 'blog-post.html', {'commentary': obj,
+                                              'detail': product})
 
 
 
