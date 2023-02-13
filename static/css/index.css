@@ -6,6 +6,15 @@
 background-color: var(--color-sub-light);
 }
 
+
+.profile_image{
+    opacity: 1;
+}
+
+.profile_image:hover{
+    opacity: 0.5;
+}
+
 .carding{
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

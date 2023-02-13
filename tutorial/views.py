@@ -3,13 +3,10 @@ from django.shortcuts import render
 from .models import Product, Category, Commentary
 from django.core.paginator import Paginator
 from accounts.models import CustomUser
-from django.urls import reverse
+from django.shortcuts import redirect
+
+
 # Create your views here.
-
-
-def IndexView(request):
-    return render(request,'index.html')
-
 
 def BlogView(request):
     context = Product.objects.filter(is_activated=True)
@@ -18,23 +15,29 @@ def BlogView(request):
     page = request.GET.get('page')
     product = p.get_page(page)
     all = Category.objects.all()
-    return render(request, 'blog.html', {'product': product,
-                                        'context': context,
-                                        'category': all})
+    context = {
+         'product': product,
+         'context': context,
+         'category': all
+    }
+    return render(request, 'blog.html', context)
 
 
 def CategoryView(request, category_slug=None):
     category_ism = Category.objects.get(slug=category_slug)
     context = Product.objects.filter(is_activated=True)
     # Paginator
-    p = Paginator(Product.objects.filter(Q(category=category_ism) & Q(is_activated=True)), 3)
+    p = Paginator(Product.objects.filter(Q(category=category_ism) & Q(is_activated=True)), 6)
     page = request.GET.get('page')
     product = p.get_page(page)
     all = Category.objects.all()
-    return render(request, 'blog.html', {'product': product,
-                                         'category_name': category_ism,
-                                         'context': context,
-                                         'category': all})
+    context= {
+        'product': product,
+         'category_name': category_ism,
+         'context': context,
+         'category': all
+    }
+    return render(request, 'blog.html', context)
 
 
 def BlogPostView(request, slug=None):
@@ -42,22 +45,13 @@ def BlogPostView(request, slug=None):
     detail = Product.objects.get(slug=slug)
     obj = Commentary.objects.filter(product__slug=slug)
     all = Category.objects.all()
-    return render(request, 'blog-post.html', context={'detail': detail,
-                                              'commentary': obj,
-                                              'context': context,
-                                              'category': all})
-
-
-def UielementsView(request):
-    return render(request,'ui-elements.html')
-
-
-def PortfolioView(request):
-    return render(request,'portfolio.html')
-
-
-def PortfolioitemView(request):
-    return render(request,'portfolio-item.html')
+    context ={
+        'detail': detail,
+        'commentary': obj,
+        'context': context,
+        'category': all
+    }
+    return render(request, 'blog-post.html', context)
 
 
 def ContactView(request):
@@ -77,14 +71,13 @@ def SearchView(request):
 
 def AddCommentView(request, slug):
     #add comment
-    obj = Commentary.objects.filter(product__slug=slug)
     text = request.GET.get('add_comment')
     user = CustomUser.objects.get(username=request.user.username)
     product = Product.objects.get(slug=slug)
     add = Commentary(product_id=int(product.id), author_id=int(user.id), text=text)
     add.save()
-    return render(request, 'blog-post.html', {'commentary': obj,
-                                              'detail': product})
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
 
 
 

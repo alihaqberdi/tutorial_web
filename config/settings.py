@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'tutorial_2',
         'USER': 'postgres',
         'PASSWORD': 'lopsed2211tyg',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -160,8 +160,8 @@ CKEDITOR_RESTRICT_BY_USER = True
 
 #user
 AUTH_USER_MODEL = 'accounts.CustomUser'
-LOGIN_REDIRECT_URL = 'tutorial:home'
-LOGOUT_REDIRECT_URL = 'tutorial:home'
+LOGIN_REDIRECT_URL = 'tutorial:blog'
+LOGOUT_REDIRECT_URL = 'tutorial:blog'
 
 
 AUTHENTICATION_BACKENDS = (

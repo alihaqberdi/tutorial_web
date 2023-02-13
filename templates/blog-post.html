@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load tags %}
 <html lang="en">
 <head>
 
@@ -100,7 +101,7 @@
                  <div class="sidebar">
                             <div class="widget search-form">
                                 <form action="{% url 'tutorial:search' %}" class="form-group" method="GET">{% csrf_token %}
-                                    <input type="text" class="form-control" placeholder="Search" required name='texting'>
+                                    <input type="text" class="form-control" placeholder="Search" required name='texting' style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                     <button class="btn btn-green" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div><!-- /.search-form -->
@@ -115,18 +116,18 @@
                                         </ul>
                                 </ul>
                             </div>
-                        </div><!-- /.sidebar -->
-                        <article class="blog-post">
+                        </div><!-- /.sidebar --><br><br>
+                        <article class="blog-post" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding:50px; border-radius:12%;">
                             <img src="{{ detail.image.url }}" class="img-res" alt="">
                             <div class="post-content">
                                 <h2 class="post-title">{{ detail.title }}</h2>
                                 <p>{{ detail.discription | safe }}</p>
                                 <div class="post-meta">
                                     <span class="post-author">
-                                        <a href="#"><img class="img-res" src="{{ detail.author.profile_img.url }}" alt="">{{ detail.author }}</a>
+                                        <a href="#"><img class="img-res" src="{{ detail.author.profile_img.url }}" alt="" style="border-radius:12%;">{{ detail.author }}</a>
                                     </span>
                                     <span class="post-date">
-                                        <a href=""><i class="fa fa-calendar" aria-hidden="true"></i>{{ detail.update|date:"F d, Y" }}</a>
+                                        <a href=""><i class="fa fa-calendar" aria-hidden="true"></i>{{ detail.update|vaqt }} oldin</a>
                                         </span>
                                     <span class="post-category">
                                         <a href="{{ detail.category.get_absolute_url }}"><i class="fa fa-folder" aria-hidden="true"></i>{{ detail.category }}</a>
@@ -138,62 +139,62 @@
                             {% if user.is_authenticated %}
                             <h3>Post a Comment</h3>
                             <form action="{% url 'tutorial:add_comment' detail.slug %}" class="form-horizontal" method="GET">{% csrf_token %}
-                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment"></textarea>
+                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"></textarea>
                                 <button class="btn btn-green" type="submit">Add a comment</button>
                             </form>
                             {% else %}
                             <h3>Post a Comment</h3>
-                            <form action="{% url 'login' %}" class="form-horizontal" method="GET">{% csrf_token %}
-                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment"></textarea>
+                            <form action="{% url 'accounts:login' %}" class="form-horizontal" method="GET">{% csrf_token %}
+                                <textarea class="form-control form-control-comment" type="text" placeholder="Your Comment*" required name="add_comment" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"></textarea>
                                 <button class="btn btn-green" type="submit">Add a comment</button>
                             </form>
                             {% endif %}
                         </div><!-- /.respond -->
-                        <div id="PostComments" class="post-comments">
+                        <div id="PostComments" class="post-comments"  style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding:2%; border-radius:12px;">
                             {% if commentary %}
                             <h3>{{ commentary | length }} - Comments</h3>
                             {% else %}
                             <h2>No Comments</h2>
                             {% endif %}
-                            {% for com in commentary %}
-                            <div class="post-comment border-success">
+                                {% for com in commentary %}
+                                <div class="post-comment border-success">
 
-                                <img class="img-res" src="{{ com.author.profile_img.url }}" alt="" style="border-radius: 50%;">
-
-                                <div class="post-comment-content">
-                                    
-                                    <div class="post-comment-content-details">
-                                        <p class="post-comment-author-name"><b>{{ com.author.username }}</b></p>
-                                        <p class="post-comment-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ com.update|date:"F d, Y"  }}</p>
-                                    </div><!-- /.post-content-details -->
-                                    <p class="comment">{{ com.text }}</p>
-                                    <div class="text-right comment-reply">
-                                       <a href="">Javob yozish</a>
-                                    </div>
-                                </div><!-- /.post-comment-content --> 
-                            </div><!-- /.post-comment -->
-                            {% endfor %}
-                            <div class="replied">
-                                <div class="post-comment">
-
-                                    <img class="img-res" src="assets/img/author-3.jpg" alt="">
+                                    <img class="img-res" src="{{ com.author.profile_img.url }}" alt="" style="border-radius: 50%; height: ">
 
                                     <div class="post-comment-content">
-                                        
-                                        <div class="post-comment-content-details">
-                                            <p class="post-comment-author-name">Marc Jones</p>
-                                            <p class="post-comment-date"><i class="fa fa-calendar" aria-hidden="true"></i>Jan 5, at 23:33</p>
-                                        </div><!-- /.post-content-details -->
-                                        <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
 
-                                        <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                        <div class="post-comment-content-details">
+                                            <p class="post-comment-author-name"><b>{{ com.author.username }}</b></p>
+                                            <p class="post-comment-date"><i class="fa fa-calendar" aria-hidden="true"></i>{{ com.update|vaqt }} oldin</p>
+                                        </div><!-- /.post-content-details -->
+                                        <p class="comment" style="color:black;"><b>{{ com.text }}</b></p>
                                         <div class="text-right comment-reply">
-                                            <a href="#">Reply</a>
+                                           <a href="">Javob yozish</a>
                                         </div>
-                                            
-                                    </div><!-- /.post-comment-content --> 
-                                </div><!-- /.post-comment --> 
-                            </div><!-- /.replied -->
+                                    </div><!-- /.post-comment-content -->
+                                </div><!-- /.post-comment -->
+                                {% endfor %}
+<!--                            <div class="replied">-->
+<!--                                <div class="post-comment">-->
+
+<!--                                    <img class="img-res" src="assets/img/author-3.jpg" alt="">-->
+
+<!--                                    <div class="post-comment-content">-->
+<!--                                        -->
+<!--                                        <div class="post-comment-content-details">-->
+<!--                                            <p class="post-comment-author-name">Marc Jones</p>-->
+<!--                                            <p class="post-comment-date"><i class="fa fa-calendar" aria-hidden="true"></i>Jan 5, at 23:33</p>-->
+<!--                                        </div>&lt;!&ndash; /.post-content-details &ndash;&gt;-->
+<!--                                        <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>-->
+
+<!--                                        <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>-->
+<!--                                        <div class="text-right comment-reply">-->
+<!--                                            <a href="#">Reply</a>-->
+<!--                                        </div>-->
+<!--                                            -->
+<!--                                    </div>&lt;!&ndash; /.post-comment-content &ndash;&gt; -->
+<!--                                </div>&lt;!&ndash; /.post-comment &ndash;&gt; -->
+<!--                            </div>&lt;!&ndash; /.replied &ndash;&gt;-->
                         </div><!-- /#PostComments -->
 
                 </div>

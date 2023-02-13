@@ -44,46 +44,49 @@
 
 </head>
 <body>
-
+      <center>
+    {% if messages %}
+      {% for mes in messages %}
+        <div class="alert alert--{{mes.tags}}">
+            <p class="alert__message">{{mes}}</p>
+            <button class="alert__close">⨯</button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </center>
     <header id="masthead" class="site-header site-header-white">
         <nav id="primary-navigation" class="site-navigation">
             <div class="container">
 
-                <div class="navbar-header">
+                <div class="navbar-header" style="padding-right: 3%">
 
-                    <a href="{% url 'tutorial:home' %}" class="site-title"><span>MRIT</span>Academy</a>
+                    <a href="{% url 'tutorial:blog' %}" class="site-title"><span>MRIT</span>Academy</a>
 
                 </div><!-- /.navbar-header -->
 
                 <div class="collapse navbar-collapse header_a" id="agency-navbar-collapse">
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="{% url 'tutorial:home' %}">Home</a></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
-
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                              <li><a href="{% url 'tutorial:portfolio' %}">Portfolio</a></li>
-                              <li><a href="{% url 'tutorial:blog' %}">Blog</a></li>
-                            </ul>
-
-                        </li>
-                        <li><a href="{% url 'tutorial:portfolio' %}">Portfolio</a></li>
+                    <ul class="nav navbar-nav navbar-left">
                         <li class="active"><a href="{% url 'tutorial:blog' %}">Blog</a></li>
                         <li><a href="{% url 'tutorial:contact' %}">Contact</a></li>
-                        <li><a href="{% url 'tutorial:ui-elements' %}">UI Elements</a></li>
+                    </ul>
                     {% if user.is_authenticated %}
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown"><a href="{% url 'accounts:profile' %}" class="dropdown-toggle" data-toggle="dropdown"><img class="avatar avatar--sm" src="{{ user.profile_img.url }}"><i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                               <li><a href="#">{{ user.username }}</a></li>
-                               <li><a href="{% url 'logout' %}">Chiqish</a></li>
+                                <li><a href="{% url 'accounts:profile' %}"><b>{{ user.username}}</b></a></li><hr>
+                                <li><a href="{% url 'accounts:profile' %}">your Profile</a></li>
+                                <li><a href="#}">your Post</a></li>
+                                <li><a href="#">your Comment</a></li>
+                                <li><a href="#">your Like</a></li><hr>
+                                <li><a href="{% url 'accounts:logout' %}"><b>Chiqish</b></a></li>
                             </ul>
                         </li>
+                    </ul>
                     {% else %}
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Kirish<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+                        <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Kirish<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                               <li><a href="{% url 'accounts:signup' %}">Ro'yxatdan o'tish</a></li>
-                              <li><a href="{% url 'login' %}">Kirish</a></li>
+                              <li><a href="{% url 'accounts:login' %}">Kirish</a></li>
                             </ul>
                         </li>
                     {% endif %}
@@ -115,7 +118,7 @@
                  <div class="sidebar">
                             <div class="widget search-form">
                                 <form action="{% url 'tutorial:search' %}" class="form-group" method="GET">{% csrf_token %}
-                                    <input type="text" class="form-control" placeholder="Search" required name='texting'>
+                                    <input type="text" class="form-control" placeholder="Search" required name='texting' style=" box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                                     <button class="btn btn-green" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                 </form>
                             </div><!-- /.search-form -->
@@ -263,9 +266,7 @@
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <h3>Featured links</h3>
                     <ul class="list-unstyled">
-                        <li><a href="{% url 'tutorial:home' %}">Home</a></li>
                         <li class="active"><a href="{% url 'tutorial:blog' %}">Blog</a></li>
-                        <li><a href="{% url 'tutorial:portfolio' %}">Porfolio</a></li>
                         <li><a href="{% url 'tutorial:contact' %}">Contact</a></li>
                     </ul>
                 </div>
@@ -305,9 +306,9 @@
     <script src="{% static 'assets/js/jquery.countTo.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.shuffle.min.js' %}"></script>
     <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'uikit\app.js' %}"></script>
 
 
 
-    
 </body>
 </html>

@@ -22,8 +22,6 @@ from .settings import DEBUG
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
-    # django auth
-    path('accounts/', include('django.contrib.auth.urls')),
     # app
     path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('', include(('tutorial.urls', 'tutorial'), namespace='tutorial'))

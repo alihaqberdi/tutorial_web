@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 class UserForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = 'username', 'first_name', 'last_name', 'email', 'password','profile_img'
+        fields = 'username', 'first_name', 'password'
         widgets = {
-            'password': forms.PasswordInput()
+            'password': forms.PasswordInput(),
         }
 
 
